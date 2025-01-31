@@ -3,13 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Fun Facts Generator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Random Cat Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Fun Facts About Cats!</h1>
-    <div id="fact-display">Click the button to see a fun fact!</div>
-    <button onclick="generateFact()">Generate Another Fun Fact</button>
-    <script src="script.js"></script>
+    <div class="container">
+        <h1>Random Cat Facts</h1>
+        <p id="factDisplay">Click the button to see a cat fact!</p>
+        <button id="factButton">Get a Cat Fact</button>
+    </div>
+    <script>
+        const catFacts = [
+            {
+                "fact": "Whisker Sensitivity",
+                "description": "Cats have highly sensitive whiskers that can detect changes in their environment. These whiskers help them navigate in the dark and gauge the width of openings."
+            },
+            {
+                "fact": "Purring",
+                "description": "Cats purr not only when they are happy but also when they are in pain or stressed. Purring may have a calming effect and can promote healing."
+            },
+            {
+                "fact": "Sleep Patterns",
+                "description": "Cats are known for their love of sleep, averaging 12 to 16 hours a day. They are crepuscular animals, meaning they are most active during dawn and dusk."
+            },
+            {
+                "fact": "Communication",
+                "description": "Cats communicate with humans through vocalizations, body language, and even facial expressions. They have a range of sounds, including meows, purrs, and hisses."
+            },
+            {
+                "fact": "Unique Nose Prints",
+                "description": "Just like human fingerprints, each cat has a unique nose print. This can be used to identify individual cats."
+            },
+            {
+                "fact": "Hunting Instincts",
+                "description": "Domestic cats share about 95.6% of their DNA with tigers. They retain strong hunting instincts, which is why they may bring home 'gifts' like mice or birds."
+            },
+            {
+                "fact": "Lifespan",
+                "description": "The average lifespan of an indoor cat is around 12 to 15 years, but many can live into their 20s with proper care."
+            },
+            {
+                "fact": "Grooming",
+                "description": "Cats spend a significant portion of their day grooming themselves, which helps them regulate their body temperature and keep their fur clean."
+            },
+            {
+                "fact": "Social Structure",
+                "description": "While cats are often seen as solitary animals, they can form strong social bonds with other cats and humans. They may even develop a hierarchy within multi-cat households."
+            },
+            {
+                "fact": "Color Vision",
+                "description": "Cats can see in low light and have a wider field of vision than humans, but their color vision is limited. They see the world primarily in shades of blue and green."
+            }
+        ];
+
+        document.getElementById('factButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * catFacts.length);
+            const selectedFact = catFacts[randomIndex];
+            document.getElementById('factDisplay').innerText = `${selectedFact.fact}: ${selectedFact.description}`;
+        });
+    </script>
 </body>
 </html>
